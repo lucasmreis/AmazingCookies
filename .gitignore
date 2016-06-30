@@ -1,0 +1,5 @@
+.fake
+build
+deploy
+packages
+**/obj/**/*.*
