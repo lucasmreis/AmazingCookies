@@ -10,9 +10,9 @@ type EventStore<'Key, 'Event when 'Key : comparison>() =
     member this.SaveEvent =
         saveEvent.Publish
 
-    member this.Save(name, event) =
-        eventList.Add(name, event)
-        saveEvent.Trigger((name, event))
+    member this.Save(name, events) =
+        events |> List.iter (fun e -> eventList.Add(name, e))
+        events |> List.iter (fun e -> saveEvent.Trigger((name, e)))
 
     member this.Get() =
         eventList

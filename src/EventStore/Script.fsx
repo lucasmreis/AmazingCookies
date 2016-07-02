@@ -9,14 +9,14 @@ let store = EventStore<string, string>()
 
 store.SaveEvent.Add(fun x -> printfn "-- EVENT: %A" x)
 
-store.Save("a", "aaa")
-store.Save("a", "bbb")
-store.Save("a", "ccc")
-store.Save("b", "aaa")
-store.Save("b", "bbb")
-store.Save("b", "ccc")
+store.Save("a", ["aaa"])
+store.Save("a", ["bbb"])
+store.Save("a", ["ccc"])
+store.Save("b", ["aaa"])
+store.Save("b", ["bbb"])
+store.Save("b", ["ccc1"; "ccc2"; "ccc3"])
 
 store.Get()
 
 store.Get("a")
-store.Get("b")
+store.Get("c")
