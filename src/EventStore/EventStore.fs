@@ -23,3 +23,4 @@ type EventStore<'Key, 'Event when 'Key : comparison>() =
             where (n = name)
             select ev
         } |> Seq.toList
+
