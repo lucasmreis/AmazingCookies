@@ -21,10 +21,22 @@ Target "Clean" (fun _ ->
     CleanDirs [buildDir; deployDir]
 )
 
-Target "Build" (fun _ ->
+Target "Server Build" (fun _ ->
     // compile all projects below src/app/
     MSBuildDebug buildDir "Build" appReferences
         |> Log "AppBuild-Output: "
+)
+
+Target "Client Build" (fun _ ->
+    Shell.Exec ("elm-make", "app/Main.elm", "src/Client")
+    Copy buildDir [ "src/Client/index.html" ]
+    ()
+)
+
+Target "Dashboard Build" (fun _ ->
+    Shell.Exec ("elm-make", "app/Main.elm --output dashboard.html", "src/Dashboard")
+    Copy buildDir [ "src/Dashboard/dashboard.html" ]
+    ()
 )
 
 Target "Deploy" (fun _ ->
@@ -35,8 +47,10 @@ Target "Deploy" (fun _ ->
 
 // Build order
 "Clean"
-  ==> "Build"
+  ==> "Server Build"
+  ==> "Client Build"
+  ==> "Dashboard Build"
   ==> "Deploy"
 
 // start build
-RunTargetOrDefault "Build"
+RunTargetOrDefault "Dashboard Build"

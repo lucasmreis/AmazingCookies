@@ -3,3 +3,4 @@ build
 deploy
 packages
 **/obj/**/*.*
+**/elm-stuff
