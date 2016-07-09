@@ -1,16 +1,22 @@
 module Main exposing (..)
 
-import Html exposing (Html, button, div, text)
+import Html exposing (..)
 import Html.App as Html
-import Html.Events exposing (onClick)
+import WebSocket
 
 
 main =
-    Html.beginnerProgram
-        { model = model
+    Html.program
+        { init = init
         , view = view
         , update = update
+        , subscriptions = subscriptions
         }
+
+
+echoServer : String
+echoServer =
+    "ws://localhost:8083/websocket"
 
 
 
@@ -18,31 +24,37 @@ main =
 
 
 type alias Model =
-    Int
+    { input : String
+    , messages : List String
+    }
 
 
-model : Model
-model =
-    0
+init : ( Model, Cmd Msg )
+init =
+    ( Model "" [], Cmd.none )
 
 
 
 -- UPDATE
 
 
-type Msg
-    = Increment
-    | Decrement
+type Msg = NewMessage String
 
 
-update : Msg -> Model -> Model
-update msg model =
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg { input, messages } =
     case msg of
-        Increment ->
-            model + 1
+        NewMessage str ->
+            ( Model input (str :: messages), Cmd.none )
 
-        Decrement ->
-            model - 1
+
+
+-- SUBSCRIPTIONS
+
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    WebSocket.listen echoServer NewMessage
 
 
 
@@ -52,7 +64,10 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div []
-        [ button [ onClick Decrement ] [ text "-" ]
-        , div [] [ text (toString model) ]
-        , button [ onClick Increment ] [ text "+" ]
+        [ div [] (List.map viewMessage (List.reverse model.messages))
         ]
+
+
+viewMessage : String -> Html msg
+viewMessage msg =
+    div [] [ text msg ]

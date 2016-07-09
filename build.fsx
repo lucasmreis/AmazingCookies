@@ -28,13 +28,13 @@ Target "Server Build" (fun _ ->
 )
 
 Target "Client Build" (fun _ ->
-    Shell.Exec ("elm-make", "app/Main.elm", "src/Client")
+    Shell.Exec ("elm-make", "app/Main.elm", "src/Client") |> ignore
     Copy buildDir [ "src/Client/index.html" ]
     ()
 )
 
 Target "Dashboard Build" (fun _ ->
-    Shell.Exec ("elm-make", "app/Main.elm --output dashboard.html", "src/Dashboard")
+    Shell.Exec ("elm-make", "app/Main.elm --output dashboard.html", "src/Dashboard") |> ignore
     Copy buildDir [ "src/Dashboard/dashboard.html" ]
     ()
 )
