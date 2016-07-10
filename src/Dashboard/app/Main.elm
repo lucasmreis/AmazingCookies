@@ -3,6 +3,7 @@ module Main exposing (..)
 import Html exposing (..)
 import Html.App as Html
 import WebSocket
+import Scout
 
 
 main =
@@ -14,8 +15,8 @@ main =
         }
 
 
-echoServer : String
-echoServer =
+scoutEventsServer : String
+scoutEventsServer =
     "ws://localhost:8083/websocket"
 
 
@@ -24,28 +25,46 @@ echoServer =
 
 
 type alias Model =
-    { input : String
-    , messages : List String
+    { totalCookies : Int
+    , events : List Scout.Model
     }
 
 
 init : ( Model, Cmd Msg )
 init =
-    ( Model "" [], Cmd.none )
+    ( Model 0 [], Cmd.none )
 
 
 
 -- UPDATE
 
 
-type Msg = NewMessage String
+type Msg
+    = EventReceived String
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
-update msg { input, messages } =
+update msg model =
     case msg of
-        NewMessage str ->
-            ( Model input (str :: messages), Cmd.none )
+        EventReceived str ->
+            let
+                maybeEvent =
+                    Scout.decodeEvent str
+
+                newModel =
+                    case maybeEvent of
+                        Just ev ->
+                            case ev.event of
+                                Scout.Sold n ->
+                                    { totalCookies = model.totalCookies + n, events = ev :: model.events }
+
+                                _ ->
+                                    { model | events = ev :: model.events }
+
+                        Nothing ->
+                            model
+            in
+                ( newModel, Cmd.none )
 
 
 
@@ -54,7 +73,7 @@ update msg { input, messages } =
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-    WebSocket.listen echoServer NewMessage
+    WebSocket.listen scoutEventsServer EventReceived
 
 
 
@@ -64,10 +83,11 @@ subscriptions model =
 view : Model -> Html Msg
 view model =
     div []
-        [ div [] (List.map viewMessage (List.reverse model.messages))
+        [ div [] [ text ("Cookies sold: " ++ (toString model.totalCookies)) ]
+        , div [] (List.map viewEvent model.events)
         ]
 
 
-viewMessage : String -> Html msg
-viewMessage msg =
-    div [] [ text msg ]
+viewEvent : Scout.Model -> Html Msg
+viewEvent event =
+    div [] [ text (Scout.eventToString event) ]
