@@ -43,28 +43,27 @@ type Msg
     = EventReceived String
 
 
+maybeUpdateCookies : String -> Model -> Model
+maybeUpdateCookies eventString model =
+    case Scout.decodeEvent eventString of
+        Just ev ->
+            case ev.event of
+                Scout.Sold n ->
+                    { totalCookies = model.totalCookies + n
+                    , events = ev :: model.events }
+
+                _ ->
+                    { model | events = ev :: model.events }
+
+        Nothing ->
+            model
+
+
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        EventReceived str ->
-            let
-                maybeEvent =
-                    Scout.decodeEvent str
-
-                newModel =
-                    case maybeEvent of
-                        Just ev ->
-                            case ev.event of
-                                Scout.Sold n ->
-                                    { totalCookies = model.totalCookies + n, events = ev :: model.events }
-
-                                _ ->
-                                    { model | events = ev :: model.events }
-
-                        Nothing ->
-                            model
-            in
-                ( newModel, Cmd.none )
+        EventReceived eventString ->
+            maybeUpdateCookies eventString model ! []
 
 
 
