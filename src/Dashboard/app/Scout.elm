@@ -66,4 +66,15 @@ decodeEvent str =
 
 eventToString : Model -> String
 eventToString model =
-    model.name ++ ": " ++ (toString model.event)
+    case model.event of
+        DayStarted ->
+            model.name ++ " is starting the day."
+
+        HouseVisited ->
+            model.name ++ " is visiting a house."
+
+        Sold n ->
+            model.name ++ " just sold " ++ (toString  n) ++ " cookies!"
+
+        DayFinished ->
+            model.name ++ " is going to have some fun now!"

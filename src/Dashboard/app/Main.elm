@@ -2,6 +2,7 @@ module Main exposing (..)
 
 import Html exposing (..)
 import Html.App as Html
+import Html.Attributes exposing (style)
 import WebSocket
 import Scout
 
@@ -64,7 +65,7 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         EventReceived eventString ->
-            maybeUpdateCookies eventString model ! []
+            ( maybeUpdateCookies eventString model, Cmd.none )
 
 
 
@@ -83,11 +84,27 @@ subscriptions model =
 view : Model -> Html Msg
 view model =
     div []
-        [ div [] [ text ("Cookies sold: " ++ (toString model.totalCookies)) ]
-        , div [] (List.map viewEvent model.events)
+        [ div [ totalCardStyle ] [ text ("Cookies sold: " ++ (toString model.totalCookies)) ]
+        , div [] (List.map viewEvent (List.reverse model.events))
         ]
 
 
 viewEvent : Scout.Model -> Html Msg
 viewEvent event =
-    div [] [ text (Scout.eventToString event) ]
+    div [ logMessageStyle ] [ text (Scout.eventToString event) ]
+
+
+totalCardStyle =
+    style
+        [ ( "font-family", "-apple-system, system, sans-serif" )
+        , ( "font-size", "2em" )
+        , ( "margin", "20px" )
+        ]
+
+
+logMessageStyle =
+    style
+        [ ( "font-family", "-apple-system, system, sans-serif" )
+        , ( "font-size", "1em" )
+        , ( "margin", "20px" )
+        ]
