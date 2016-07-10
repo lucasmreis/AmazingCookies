@@ -50,7 +50,8 @@ maybeUpdateCookies eventString model =
             case ev.event of
                 Scout.Sold n ->
                     { totalCookies = model.totalCookies + n
-                    , events = ev :: model.events }
+                    , events = ev :: model.events
+                    }
 
                 _ ->
                     { model | events = ev :: model.events }
