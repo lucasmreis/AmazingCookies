@@ -1,5 +1,6 @@
 module Main exposing (..)
 
+import Dict
 import Html exposing (..)
 import Html.App as Html
 import Html.Attributes exposing (style)
@@ -27,13 +28,14 @@ scoutEventsServer =
 
 type alias Model =
     { totalCookies : Int
-    , events : List Scout.Model
+    , scouts : Dict.Dict String Scout.StateModel
+    , events : List Scout.EventModel
     }
 
 
 init : ( Model, Cmd Msg )
 init =
-    ( Model 0 [], Cmd.none )
+    ( Model 0 Dict.empty [], Cmd.none )
 
 
 
@@ -44,14 +46,15 @@ type Msg
     = EventReceived String
 
 
-maybeUpdateCookies : String -> Model -> Model
-maybeUpdateCookies eventString model =
-    case Scout.decodeEvent eventString of
+maybeUpdateCookies : Maybe Scout.EventModel -> Model -> Model
+maybeUpdateCookies maybeEvent model =
+    case maybeEvent of
         Just ev ->
             case ev.event of
                 Scout.Sold n ->
-                    { totalCookies = model.totalCookies + n
-                    , events = ev :: model.events
+                    { model
+                        | totalCookies = model.totalCookies + n
+                        , events = ev :: model.events
                     }
 
                 _ ->
@@ -61,11 +64,30 @@ maybeUpdateCookies eventString model =
             model
 
 
+updateScouts : Maybe Scout.EventModel -> Model -> Model
+updateScouts maybeEvent model =
+    case maybeEvent of
+        Just ev ->
+            { model | scouts = Dict.insert ev.name (Scout.stateAfter ev.event) model.scouts }
+
+        Nothing ->
+            model
+
+
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         EventReceived eventString ->
-            ( maybeUpdateCookies eventString model, Cmd.none )
+            let
+                maybeEvent =
+                    Scout.decodeEvent eventString
+
+                newModel =
+                    model
+                        |> maybeUpdateCookies maybeEvent
+                        |> updateScouts maybeEvent
+            in
+                ( newModel, Cmd.none )
 
 
 
@@ -83,15 +105,26 @@ subscriptions model =
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ div [ totalCardStyle ] [ text ("Cookies sold: " ++ (toString model.totalCookies)) ]
-        , div [] (List.map viewEvent (List.reverse model.events))
+    div [ gridStyle ]
+        [ div []
+            [ div [ totalCardStyle ] [ text ("Cookies sold: " ++ (toString model.totalCookies)) ]
+            , div [] (List.map viewScout (Dict.toList model.scouts))
+            ]
+        , div [] (List.map viewEvent model.events)
         ]
 
 
-viewEvent : Scout.Model -> Html Msg
+viewEvent : Scout.EventModel -> Html Msg
 viewEvent event =
     div [ logMessageStyle ] [ text (Scout.eventToString event) ]
+
+
+viewScout scout =
+    div [ stateStyle ] [ text (Scout.stateToString (fst scout) (snd scout)) ]
+
+
+gridStyle =
+    style [ ( "display", "flex" ) ]
 
 
 totalCardStyle =
@@ -99,6 +132,7 @@ totalCardStyle =
         [ ( "font-family", "-apple-system, system, sans-serif" )
         , ( "font-size", "2em" )
         , ( "margin", "20px" )
+        , ( "width", "400px" )
         ]
 
 
@@ -106,5 +140,15 @@ logMessageStyle =
     style
         [ ( "font-family", "-apple-system, system, sans-serif" )
         , ( "font-size", "1em" )
+        , ( "color", "rgba(0,0,0,0.5)" )
+        , ( "margin", "20px" )
+        ]
+
+
+stateStyle =
+    style
+        [ ( "font-family", "-apple-system, system, sans-serif" )
+        , ( "font-size", "1.5em" )
+        , ( "color", "rgba(0,0,0,0.5)" )
         , ( "margin", "20px" )
         ]

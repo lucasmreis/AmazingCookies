@@ -4,6 +4,9 @@ import Json.Decode exposing (Decoder, decodeString, succeed, string, list, int, 
 import Json.Decode.Extra exposing ((|:))
 
 
+-- EVENT
+
+
 type Event
     = DayStarted
     | HouseVisited
@@ -11,28 +14,28 @@ type Event
     | DayFinished
 
 
-type alias Model =
+type alias EventModel =
     { name : String
     , event : Event
     }
 
 
-type alias JsonEvent =
+type alias EventJson =
     { event : String
     , name : String
     , quantity : Maybe Int
     }
 
 
-decoder : Decoder JsonEvent
+decoder : Decoder EventJson
 decoder =
-    succeed JsonEvent
+    succeed EventJson
         |: ("event" := string)
         |: ("name" := string)
         |: (maybe ("quantity" := int))
 
 
-jsonToEvent : JsonEvent -> Maybe Model
+jsonToEvent : EventJson -> Maybe EventModel
 jsonToEvent json =
     let
         { event, name, quantity } =
@@ -55,7 +58,7 @@ jsonToEvent json =
                 Nothing
 
 
-decodeEvent : String -> Maybe Model
+decodeEvent : String -> Maybe EventModel
 decodeEvent str =
     case (decodeString decoder str) of
         Ok event ->
@@ -64,17 +67,57 @@ decodeEvent str =
         _ ->
             Nothing
 
-eventToString : Model -> String
+
+eventToString : EventModel -> String
 eventToString model =
     case model.event of
         DayStarted ->
-            model.name ++ " is starting the day."
+            model.name ++ " just started the day."
 
         HouseVisited ->
-            model.name ++ " is visiting a house."
+            model.name ++ " visited a house."
 
         Sold n ->
-            model.name ++ " just sold " ++ (toString  n) ++ " cookies!"
+            model.name ++ " just sold " ++ (toString n) ++ " cookies!"
 
         DayFinished ->
             model.name ++ " is going to have some fun now!"
+
+
+
+-- STATE
+
+
+type StateModel
+    = Walking
+    | Visiting
+    | HavingFun
+
+
+stateAfter : Event -> StateModel
+stateAfter event =
+    case event of
+        DayStarted ->
+            Walking
+
+        HouseVisited ->
+            Visiting
+
+        Sold _ ->
+            Walking
+
+        DayFinished ->
+            HavingFun
+
+
+stateToString : String -> StateModel -> String
+stateToString name state =
+    case state of
+        Walking ->
+            name ++ " is walking."
+
+        Visiting ->
+            name ++ " is visiting a house."
+
+        HavingFun ->
+            name ++ " is having fun."
