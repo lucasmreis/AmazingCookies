@@ -105,50 +105,106 @@ subscriptions model =
 
 view : Model -> Html Msg
 view model =
-    div [ gridStyle ]
-        [ div []
-            [ div [ totalCardStyle ] [ text ("Cookies sold: " ++ (toString model.totalCookies)) ]
-            , div [] (List.map viewScout (Dict.toList model.scouts))
+    div []
+        [ div [ totalCardStyle ] [ totalView model.totalCookies ]
+        , div [ horizontalGridStyle ]
+            [ div [ scoutsColumnStyle ] (List.map viewScout (Dict.toList model.scouts))
+            , div [ logColumnStyle ]
+                [ div [ logTitleStyle ] [ text "Log:" ]
+                , div [] (List.map viewEvent model.events)
+                ]
             ]
-        , div [] (List.map viewEvent model.events)
+        ]
+
+
+totalView totalCookies =
+    div [ horizontalGridStyle ]
+        [ div [ totalNumberStyle ] [ text (toString totalCookies) ]
+        , div [ totalCaptionStyle ] [ text "Cookies Sold" ]
         ]
 
 
 viewEvent : Scout.EventModel -> Html Msg
 viewEvent event =
-    div [ logMessageStyle ] [ text (Scout.eventToString event) ]
+    div [ logMessageStyle ] [ text ("> " ++ (Scout.eventToString event)) ]
 
 
 viewScout scout =
-    div [ stateStyle ] [ text (Scout.stateToString (fst scout) (snd scout)) ]
+    div [ stateStyle (snd scout) ] [ text (Scout.stateToString (fst scout) (snd scout)) ]
 
 
-gridStyle =
+horizontalGridStyle =
     style [ ( "display", "flex" ) ]
 
 
 totalCardStyle =
     style
         [ ( "font-family", "-apple-system, system, sans-serif" )
-        , ( "font-size", "2em" )
+        , ( "font-size", "3em" )
         , ( "margin", "20px" )
-        , ( "width", "400px" )
         ]
 
 
 logMessageStyle =
     style
-        [ ( "font-family", "-apple-system, system, sans-serif" )
-        , ( "font-size", "1em" )
+        [ ( "font-size", "1em" )
         , ( "color", "rgba(0,0,0,0.5)" )
         , ( "margin", "20px" )
         ]
 
 
-stateStyle =
+stateColor : Scout.StateModel -> ( String, String )
+stateColor state =
+    case state of
+        Scout.Walking ->
+            ( "background-color", "rgba(39, 174, 96,1.0)" )
+
+        Scout.Visiting ->
+            ( "background-color", "rgba(243, 156, 18,1.0)" )
+
+        Scout.HavingFun ->
+            ( "background-color", "rgba(189, 195, 199,1.0)" )
+
+
+stateStyle state =
+    style
+        [ ( "font-family", "-apple-system, system, sans-serif" )
+        , ( "font-size", "1.5em" )
+        , ( "margin", "0px 20px 20px" )
+        , ( "padding", "20px" )
+        , ( "color", "rgba(0,0,0,0.5)" )
+        , (stateColor state)
+        ]
+
+
+totalNumberStyle =
+    style
+        [ ( "padding", "10px" )
+        , ( "color", "white" )
+        , ( "background-color", "rgba(41, 128, 185,1.0)" )
+        ]
+
+
+totalCaptionStyle =
+    style [ ( "padding", "10px" ) ]
+
+
+scoutsColumnStyle =
+    style [ ( "width", "400px" ) ]
+
+
+logTitleStyle =
     style
         [ ( "font-family", "-apple-system, system, sans-serif" )
         , ( "font-size", "1.5em" )
         , ( "color", "rgba(0,0,0,0.5)" )
-        , ( "margin", "20px" )
+        , ( "padding", "20px" )
+        ]
+
+
+logColumnStyle =
+    style
+        [ ( "width", "400px" )
+        , ( "font-family", "-apple-system, system, sans-serif" )
+        , ( "background-color", "rgba(0,0,0,0.2)" )
         ]

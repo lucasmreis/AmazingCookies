@@ -114,10 +114,10 @@ stateToString : String -> StateModel -> String
 stateToString name state =
     case state of
         Walking ->
-            name ++ " is walking."
+            name ++ " is walking"
 
         Visiting ->
-            name ++ " is visiting a house."
+            name ++ " is visiting a house"
 
         HavingFun ->
-            name ++ " is having fun."
+            name ++ " is having fun"
