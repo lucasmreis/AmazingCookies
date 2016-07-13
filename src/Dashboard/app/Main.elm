@@ -179,7 +179,7 @@ stateStyle state =
 
 totalNumberStyle =
     style
-        [ ( "padding", "10px" )
+        [ ( "padding", "10px 20px" )
         , ( "color", "white" )
         , ( "background-color", "rgba(41, 128, 185,1.0)" )
         ]
