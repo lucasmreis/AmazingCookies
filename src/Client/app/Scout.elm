@@ -4,7 +4,7 @@ import Json.Decode exposing (Decoder, decodeString, succeed, string, list, int, 
 import Json.Decode.Extra exposing ((|:))
 
 
--- EVENT
+-- EVENTS
 
 
 type Event
@@ -121,3 +121,7 @@ stateToString name state =
 
         HavingFun ->
             name ++ " is having fun"
+
+
+-- COMMANDS
+

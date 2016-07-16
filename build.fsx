@@ -34,8 +34,8 @@ Target "Client Build" (fun _ ->
 )
 
 Target "Dashboard Build" (fun _ ->
-    Shell.Exec ("elm-make", "app/Main.elm --output dashboard.html", "src/Dashboard") |> ignore
-    Copy buildDir [ "src/Dashboard/dashboard.html" ]
+    Shell.Exec ("elm-make", "app/Dashboard.elm --output dashboard.html", "src/Client") |> ignore
+    Copy buildDir [ "src/Client/dashboard.html" ]
     ()
 )
 

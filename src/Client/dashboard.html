@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html><head><meta charset="UTF-8"><title>Main</title><style>html,head,body { padding:0; margin:0; }
+<html><head><meta charset="UTF-8"><title>Dashboard</title><style>html,head,body { padding:0; margin:0; }
 body { font-family: calibri, helvetica, arial, sans-serif; }</style><script type="text/javascript">
 (function() {
 'use strict';
@@ -7895,6 +7895,357 @@ var _elm_lang$html$Html_App$beginnerProgram = function (_p1) {
 		});
 };
 var _elm_lang$html$Html_App$map = _elm_lang$virtual_dom$VirtualDom$map;
+var _elm_lang$html$Html_Attributes$attribute = _elm_lang$virtual_dom$VirtualDom$attribute;
+var _elm_lang$html$Html_Attributes$contextmenu = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$attribute, 'contextmenu', value);
+};
+var _elm_lang$html$Html_Attributes$draggable = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$attribute, 'draggable', value);
+};
+var _elm_lang$html$Html_Attributes$list = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$attribute, 'list', value);
+};
+var _elm_lang$html$Html_Attributes$maxlength = function (n) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'maxlength',
+		_elm_lang$core$Basics$toString(n));
+};
+var _elm_lang$html$Html_Attributes$datetime = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$attribute, 'datetime', value);
+};
+var _elm_lang$html$Html_Attributes$pubdate = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$attribute, 'pubdate', value);
+};
+var _elm_lang$html$Html_Attributes$colspan = function (n) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'colspan',
+		_elm_lang$core$Basics$toString(n));
+};
+var _elm_lang$html$Html_Attributes$rowspan = function (n) {
+	return A2(
+		_elm_lang$html$Html_Attributes$attribute,
+		'rowspan',
+		_elm_lang$core$Basics$toString(n));
+};
+var _elm_lang$html$Html_Attributes$property = _elm_lang$virtual_dom$VirtualDom$property;
+var _elm_lang$html$Html_Attributes$stringProperty = F2(
+	function (name, string) {
+		return A2(
+			_elm_lang$html$Html_Attributes$property,
+			name,
+			_elm_lang$core$Json_Encode$string(string));
+	});
+var _elm_lang$html$Html_Attributes$class = function (name) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'className', name);
+};
+var _elm_lang$html$Html_Attributes$id = function (name) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'id', name);
+};
+var _elm_lang$html$Html_Attributes$title = function (name) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'title', name);
+};
+var _elm_lang$html$Html_Attributes$accesskey = function ($char) {
+	return A2(
+		_elm_lang$html$Html_Attributes$stringProperty,
+		'accessKey',
+		_elm_lang$core$String$fromChar($char));
+};
+var _elm_lang$html$Html_Attributes$dir = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'dir', value);
+};
+var _elm_lang$html$Html_Attributes$dropzone = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'dropzone', value);
+};
+var _elm_lang$html$Html_Attributes$itemprop = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'itemprop', value);
+};
+var _elm_lang$html$Html_Attributes$lang = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'lang', value);
+};
+var _elm_lang$html$Html_Attributes$tabindex = function (n) {
+	return A2(
+		_elm_lang$html$Html_Attributes$stringProperty,
+		'tabIndex',
+		_elm_lang$core$Basics$toString(n));
+};
+var _elm_lang$html$Html_Attributes$charset = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'charset', value);
+};
+var _elm_lang$html$Html_Attributes$content = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'content', value);
+};
+var _elm_lang$html$Html_Attributes$httpEquiv = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'httpEquiv', value);
+};
+var _elm_lang$html$Html_Attributes$language = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'language', value);
+};
+var _elm_lang$html$Html_Attributes$src = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'src', value);
+};
+var _elm_lang$html$Html_Attributes$height = function (value) {
+	return A2(
+		_elm_lang$html$Html_Attributes$stringProperty,
+		'height',
+		_elm_lang$core$Basics$toString(value));
+};
+var _elm_lang$html$Html_Attributes$width = function (value) {
+	return A2(
+		_elm_lang$html$Html_Attributes$stringProperty,
+		'width',
+		_elm_lang$core$Basics$toString(value));
+};
+var _elm_lang$html$Html_Attributes$alt = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'alt', value);
+};
+var _elm_lang$html$Html_Attributes$preload = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'preload', value);
+};
+var _elm_lang$html$Html_Attributes$poster = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'poster', value);
+};
+var _elm_lang$html$Html_Attributes$kind = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'kind', value);
+};
+var _elm_lang$html$Html_Attributes$srclang = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'srclang', value);
+};
+var _elm_lang$html$Html_Attributes$sandbox = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'sandbox', value);
+};
+var _elm_lang$html$Html_Attributes$srcdoc = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'srcdoc', value);
+};
+var _elm_lang$html$Html_Attributes$type$ = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'type', value);
+};
+var _elm_lang$html$Html_Attributes$value = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'value', value);
+};
+var _elm_lang$html$Html_Attributes$defaultValue = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'defaultValue', value);
+};
+var _elm_lang$html$Html_Attributes$placeholder = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'placeholder', value);
+};
+var _elm_lang$html$Html_Attributes$accept = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'accept', value);
+};
+var _elm_lang$html$Html_Attributes$acceptCharset = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'acceptCharset', value);
+};
+var _elm_lang$html$Html_Attributes$action = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'action', value);
+};
+var _elm_lang$html$Html_Attributes$autocomplete = function (bool) {
+	return A2(
+		_elm_lang$html$Html_Attributes$stringProperty,
+		'autocomplete',
+		bool ? 'on' : 'off');
+};
+var _elm_lang$html$Html_Attributes$autosave = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'autosave', value);
+};
+var _elm_lang$html$Html_Attributes$enctype = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'enctype', value);
+};
+var _elm_lang$html$Html_Attributes$formaction = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'formAction', value);
+};
+var _elm_lang$html$Html_Attributes$minlength = function (n) {
+	return A2(
+		_elm_lang$html$Html_Attributes$stringProperty,
+		'minLength',
+		_elm_lang$core$Basics$toString(n));
+};
+var _elm_lang$html$Html_Attributes$method = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'method', value);
+};
+var _elm_lang$html$Html_Attributes$name = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'name', value);
+};
+var _elm_lang$html$Html_Attributes$pattern = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'pattern', value);
+};
+var _elm_lang$html$Html_Attributes$size = function (n) {
+	return A2(
+		_elm_lang$html$Html_Attributes$stringProperty,
+		'size',
+		_elm_lang$core$Basics$toString(n));
+};
+var _elm_lang$html$Html_Attributes$for = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'htmlFor', value);
+};
+var _elm_lang$html$Html_Attributes$form = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'form', value);
+};
+var _elm_lang$html$Html_Attributes$max = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'max', value);
+};
+var _elm_lang$html$Html_Attributes$min = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'min', value);
+};
+var _elm_lang$html$Html_Attributes$step = function (n) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'step', n);
+};
+var _elm_lang$html$Html_Attributes$cols = function (n) {
+	return A2(
+		_elm_lang$html$Html_Attributes$stringProperty,
+		'cols',
+		_elm_lang$core$Basics$toString(n));
+};
+var _elm_lang$html$Html_Attributes$rows = function (n) {
+	return A2(
+		_elm_lang$html$Html_Attributes$stringProperty,
+		'rows',
+		_elm_lang$core$Basics$toString(n));
+};
+var _elm_lang$html$Html_Attributes$wrap = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'wrap', value);
+};
+var _elm_lang$html$Html_Attributes$usemap = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'useMap', value);
+};
+var _elm_lang$html$Html_Attributes$shape = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'shape', value);
+};
+var _elm_lang$html$Html_Attributes$coords = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'coords', value);
+};
+var _elm_lang$html$Html_Attributes$challenge = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'challenge', value);
+};
+var _elm_lang$html$Html_Attributes$keytype = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'keytype', value);
+};
+var _elm_lang$html$Html_Attributes$align = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'align', value);
+};
+var _elm_lang$html$Html_Attributes$cite = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'cite', value);
+};
+var _elm_lang$html$Html_Attributes$href = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'href', value);
+};
+var _elm_lang$html$Html_Attributes$target = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'target', value);
+};
+var _elm_lang$html$Html_Attributes$downloadAs = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'download', value);
+};
+var _elm_lang$html$Html_Attributes$hreflang = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'hreflang', value);
+};
+var _elm_lang$html$Html_Attributes$media = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'media', value);
+};
+var _elm_lang$html$Html_Attributes$ping = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'ping', value);
+};
+var _elm_lang$html$Html_Attributes$rel = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'rel', value);
+};
+var _elm_lang$html$Html_Attributes$start = function (n) {
+	return A2(
+		_elm_lang$html$Html_Attributes$stringProperty,
+		'start',
+		_elm_lang$core$Basics$toString(n));
+};
+var _elm_lang$html$Html_Attributes$headers = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'headers', value);
+};
+var _elm_lang$html$Html_Attributes$scope = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'scope', value);
+};
+var _elm_lang$html$Html_Attributes$manifest = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$stringProperty, 'manifest', value);
+};
+var _elm_lang$html$Html_Attributes$boolProperty = F2(
+	function (name, bool) {
+		return A2(
+			_elm_lang$html$Html_Attributes$property,
+			name,
+			_elm_lang$core$Json_Encode$bool(bool));
+	});
+var _elm_lang$html$Html_Attributes$hidden = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'hidden', bool);
+};
+var _elm_lang$html$Html_Attributes$contenteditable = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'contentEditable', bool);
+};
+var _elm_lang$html$Html_Attributes$spellcheck = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'spellcheck', bool);
+};
+var _elm_lang$html$Html_Attributes$async = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'async', bool);
+};
+var _elm_lang$html$Html_Attributes$defer = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'defer', bool);
+};
+var _elm_lang$html$Html_Attributes$scoped = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'scoped', bool);
+};
+var _elm_lang$html$Html_Attributes$autoplay = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'autoplay', bool);
+};
+var _elm_lang$html$Html_Attributes$controls = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'controls', bool);
+};
+var _elm_lang$html$Html_Attributes$loop = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'loop', bool);
+};
+var _elm_lang$html$Html_Attributes$default = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'default', bool);
+};
+var _elm_lang$html$Html_Attributes$seamless = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'seamless', bool);
+};
+var _elm_lang$html$Html_Attributes$checked = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'checked', bool);
+};
+var _elm_lang$html$Html_Attributes$selected = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'selected', bool);
+};
+var _elm_lang$html$Html_Attributes$autofocus = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'autofocus', bool);
+};
+var _elm_lang$html$Html_Attributes$disabled = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'disabled', bool);
+};
+var _elm_lang$html$Html_Attributes$multiple = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'multiple', bool);
+};
+var _elm_lang$html$Html_Attributes$novalidate = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'noValidate', bool);
+};
+var _elm_lang$html$Html_Attributes$readonly = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'readOnly', bool);
+};
+var _elm_lang$html$Html_Attributes$required = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'required', bool);
+};
+var _elm_lang$html$Html_Attributes$ismap = function (value) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'isMap', value);
+};
+var _elm_lang$html$Html_Attributes$download = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'download', bool);
+};
+var _elm_lang$html$Html_Attributes$reversed = function (bool) {
+	return A2(_elm_lang$html$Html_Attributes$boolProperty, 'reversed', bool);
+};
+var _elm_lang$html$Html_Attributes$classList = function (list) {
+	return _elm_lang$html$Html_Attributes$class(
+		A2(
+			_elm_lang$core$String$join,
+			' ',
+			A2(
+				_elm_lang$core$List$map,
+				_elm_lang$core$Basics$fst,
+				A2(_elm_lang$core$List$filter, _elm_lang$core$Basics$snd, list))));
+};
+var _elm_lang$html$Html_Attributes$style = _elm_lang$virtual_dom$VirtualDom$style;
 var _elm_lang$websocket$Native_WebSocket = function() {
 
 function open(url, settings)
@@ -8425,20 +8776,45 @@ var _elm_lang$websocket$WebSocket$onSelfMsg = F3(
 		}
 	});
 _elm_lang$core$Native_Platform.effectManagers['WebSocket'] = {pkg: 'elm-lang/websocket', init: _elm_lang$websocket$WebSocket$init, onEffects: _elm_lang$websocket$WebSocket$onEffects, onSelfMsg: _elm_lang$websocket$WebSocket$onSelfMsg, tag: 'fx', cmdMap: _elm_lang$websocket$WebSocket$cmdMap, subMap: _elm_lang$websocket$WebSocket$subMap};
+var _user$project$Scout$stateToString = F2(
+	function (name, state) {
+		var _p0 = state;
+		switch (_p0.ctor) {
+			case 'Walking':
+				return A2(_elm_lang$core$Basics_ops['++'], name, ' is walking');
+			case 'Visiting':
+				return A2(_elm_lang$core$Basics_ops['++'], name, ' is visiting a house');
+			default:
+				return A2(_elm_lang$core$Basics_ops['++'], name, ' is having fun');
+		}
+	});
 var _user$project$Scout$eventToString = function (model) {
-	return A2(
-		_elm_lang$core$Basics_ops['++'],
-		model.name,
-		A2(
-			_elm_lang$core$Basics_ops['++'],
-			': ',
-			_elm_lang$core$Basics$toString(model.event)));
+	var _p1 = model.event;
+	switch (_p1.ctor) {
+		case 'DayStarted':
+			return A2(_elm_lang$core$Basics_ops['++'], model.name, ' just started the day.');
+		case 'HouseVisited':
+			return A2(_elm_lang$core$Basics_ops['++'], model.name, ' visited a house.');
+		case 'Sold':
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				model.name,
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					' just sold ',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_p1._0),
+						' cookies!')));
+		default:
+			return A2(_elm_lang$core$Basics_ops['++'], model.name, ' is going to have some fun now!');
+	}
 };
-var _user$project$Scout$Model = F2(
+var _user$project$Scout$EventModel = F2(
 	function (a, b) {
 		return {name: a, event: b};
 	});
-var _user$project$Scout$JsonEvent = F3(
+var _user$project$Scout$EventJson = F3(
 	function (a, b, c) {
 		return {event: a, name: b, quantity: c};
 	});
@@ -8448,13 +8824,11 @@ var _user$project$Scout$decoder = A2(
 		_elm_community$elm_json_extra$Json_Decode_Extra_ops['|:'],
 		A2(
 			_elm_community$elm_json_extra$Json_Decode_Extra_ops['|:'],
-			_elm_lang$core$Json_Decode$succeed(_user$project$Scout$JsonEvent),
+			_elm_lang$core$Json_Decode$succeed(_user$project$Scout$EventJson),
 			A2(_elm_lang$core$Json_Decode_ops[':='], 'event', _elm_lang$core$Json_Decode$string)),
 		A2(_elm_lang$core$Json_Decode_ops[':='], 'name', _elm_lang$core$Json_Decode$string)),
-	A2(
-		_elm_lang$core$Json_Decode_ops[':='],
-		'quantity',
-		_elm_lang$core$Json_Decode$maybe(_elm_lang$core$Json_Decode$int)));
+	_elm_lang$core$Json_Decode$maybe(
+		A2(_elm_lang$core$Json_Decode_ops[':='], 'quantity', _elm_lang$core$Json_Decode$int)));
 var _user$project$Scout$DayFinished = {ctor: 'DayFinished'};
 var _user$project$Scout$Sold = function (a) {
 	return {ctor: 'Sold', _0: a};
@@ -8462,14 +8836,14 @@ var _user$project$Scout$Sold = function (a) {
 var _user$project$Scout$HouseVisited = {ctor: 'HouseVisited'};
 var _user$project$Scout$DayStarted = {ctor: 'DayStarted'};
 var _user$project$Scout$jsonToEvent = function (json) {
-	var _p0 = json;
-	var event = _p0.event;
-	var name = _p0.name;
-	var quantity = _p0.quantity;
-	var _p1 = {ctor: '_Tuple2', _0: event, _1: quantity};
-	_v0_4:
+	var _p2 = json;
+	var event = _p2.event;
+	var name = _p2.name;
+	var quantity = _p2.quantity;
+	var _p3 = {ctor: '_Tuple2', _0: event, _1: quantity};
+	_v2_4:
 	do {
-		switch (_p1._0) {
+		switch (_p3._0) {
 			case 'DayStarted':
 				return _elm_lang$core$Maybe$Just(
 					{name: name, event: _user$project$Scout$DayStarted});
@@ -8477,44 +8851,180 @@ var _user$project$Scout$jsonToEvent = function (json) {
 				return _elm_lang$core$Maybe$Just(
 					{name: name, event: _user$project$Scout$HouseVisited});
 			case 'Sold':
-				if (_p1._1.ctor === 'Just') {
+				if (_p3._1.ctor === 'Just') {
 					return _elm_lang$core$Maybe$Just(
 						{
 							name: name,
-							event: _user$project$Scout$Sold(_p1._1._0)
+							event: _user$project$Scout$Sold(_p3._1._0)
 						});
 				} else {
-					break _v0_4;
+					break _v2_4;
 				}
 			case 'DayFinished':
 				return _elm_lang$core$Maybe$Just(
 					{name: name, event: _user$project$Scout$DayFinished});
 			default:
-				break _v0_4;
+				break _v2_4;
 		}
 	} while(false);
 	return _elm_lang$core$Maybe$Nothing;
 };
 var _user$project$Scout$decodeEvent = function (str) {
-	var _p2 = A2(_elm_lang$core$Json_Decode$decodeString, _user$project$Scout$decoder, str);
-	if (_p2.ctor === 'Ok') {
-		return _user$project$Scout$jsonToEvent(_p2._0);
+	var _p4 = A2(_elm_lang$core$Json_Decode$decodeString, _user$project$Scout$decoder, str);
+	if (_p4.ctor === 'Ok') {
+		return _user$project$Scout$jsonToEvent(_p4._0);
 	} else {
 		return _elm_lang$core$Maybe$Nothing;
 	}
 };
-var _user$project$Main$viewEvent = function (event) {
+var _user$project$Scout$HavingFun = {ctor: 'HavingFun'};
+var _user$project$Scout$Visiting = {ctor: 'Visiting'};
+var _user$project$Scout$Walking = {ctor: 'Walking'};
+var _user$project$Scout$stateAfter = function (event) {
+	var _p5 = event;
+	switch (_p5.ctor) {
+		case 'DayStarted':
+			return _user$project$Scout$Walking;
+		case 'HouseVisited':
+			return _user$project$Scout$Visiting;
+		case 'Sold':
+			return _user$project$Scout$Walking;
+		default:
+			return _user$project$Scout$HavingFun;
+	}
+};
+var _user$project$Dashboard$logColumnStyle = _elm_lang$html$Html_Attributes$style(
+	_elm_lang$core$Native_List.fromArray(
+		[
+			{ctor: '_Tuple2', _0: 'width', _1: '400px'},
+			{ctor: '_Tuple2', _0: 'font-family', _1: '-apple-system, system, sans-serif'},
+			{ctor: '_Tuple2', _0: 'background-color', _1: 'rgba(0,0,0,0.2)'}
+		]));
+var _user$project$Dashboard$logTitleStyle = _elm_lang$html$Html_Attributes$style(
+	_elm_lang$core$Native_List.fromArray(
+		[
+			{ctor: '_Tuple2', _0: 'font-family', _1: '-apple-system, system, sans-serif'},
+			{ctor: '_Tuple2', _0: 'font-size', _1: '1.5em'},
+			{ctor: '_Tuple2', _0: 'color', _1: 'rgba(0,0,0,0.5)'},
+			{ctor: '_Tuple2', _0: 'padding', _1: '20px'}
+		]));
+var _user$project$Dashboard$scoutsColumnStyle = _elm_lang$html$Html_Attributes$style(
+	_elm_lang$core$Native_List.fromArray(
+		[
+			{ctor: '_Tuple2', _0: 'width', _1: '400px'}
+		]));
+var _user$project$Dashboard$totalCaptionStyle = _elm_lang$html$Html_Attributes$style(
+	_elm_lang$core$Native_List.fromArray(
+		[
+			{ctor: '_Tuple2', _0: 'padding', _1: '10px'}
+		]));
+var _user$project$Dashboard$totalNumberStyle = _elm_lang$html$Html_Attributes$style(
+	_elm_lang$core$Native_List.fromArray(
+		[
+			{ctor: '_Tuple2', _0: 'padding', _1: '10px 20px'},
+			{ctor: '_Tuple2', _0: 'color', _1: 'white'},
+			{ctor: '_Tuple2', _0: 'background-color', _1: 'rgba(41, 128, 185,1.0)'}
+		]));
+var _user$project$Dashboard$stateColor = function (state) {
+	var _p0 = state;
+	switch (_p0.ctor) {
+		case 'Walking':
+			return {ctor: '_Tuple2', _0: 'background-color', _1: 'rgba(39, 174, 96,1.0)'};
+		case 'Visiting':
+			return {ctor: '_Tuple2', _0: 'background-color', _1: 'rgba(243, 156, 18,1.0)'};
+		default:
+			return {ctor: '_Tuple2', _0: 'background-color', _1: 'rgba(189, 195, 199,1.0)'};
+	}
+};
+var _user$project$Dashboard$stateStyle = function (state) {
+	return _elm_lang$html$Html_Attributes$style(
+		_elm_lang$core$Native_List.fromArray(
+			[
+				{ctor: '_Tuple2', _0: 'font-family', _1: '-apple-system, system, sans-serif'},
+				{ctor: '_Tuple2', _0: 'font-size', _1: '1.5em'},
+				{ctor: '_Tuple2', _0: 'margin', _1: '0px 20px 20px'},
+				{ctor: '_Tuple2', _0: 'padding', _1: '20px'},
+				{ctor: '_Tuple2', _0: 'color', _1: 'rgba(0,0,0,0.5)'},
+				_user$project$Dashboard$stateColor(state)
+			]));
+};
+var _user$project$Dashboard$logMessageStyle = _elm_lang$html$Html_Attributes$style(
+	_elm_lang$core$Native_List.fromArray(
+		[
+			{ctor: '_Tuple2', _0: 'font-size', _1: '1em'},
+			{ctor: '_Tuple2', _0: 'color', _1: 'rgba(0,0,0,0.5)'},
+			{ctor: '_Tuple2', _0: 'margin', _1: '20px'}
+		]));
+var _user$project$Dashboard$totalCardStyle = _elm_lang$html$Html_Attributes$style(
+	_elm_lang$core$Native_List.fromArray(
+		[
+			{ctor: '_Tuple2', _0: 'font-family', _1: '-apple-system, system, sans-serif'},
+			{ctor: '_Tuple2', _0: 'font-size', _1: '3em'},
+			{ctor: '_Tuple2', _0: 'margin', _1: '20px'}
+		]));
+var _user$project$Dashboard$horizontalGridStyle = _elm_lang$html$Html_Attributes$style(
+	_elm_lang$core$Native_List.fromArray(
+		[
+			{ctor: '_Tuple2', _0: 'display', _1: 'flex'}
+		]));
+var _user$project$Dashboard$viewScout = function (scout) {
 	return A2(
 		_elm_lang$html$Html$div,
 		_elm_lang$core$Native_List.fromArray(
-			[]),
+			[
+				_user$project$Dashboard$stateStyle(
+				_elm_lang$core$Basics$snd(scout))
+			]),
 		_elm_lang$core$Native_List.fromArray(
 			[
 				_elm_lang$html$Html$text(
-				_user$project$Scout$eventToString(event))
+				A2(
+					_user$project$Scout$stateToString,
+					_elm_lang$core$Basics$fst(scout),
+					_elm_lang$core$Basics$snd(scout)))
 			]));
 };
-var _user$project$Main$view = function (model) {
+var _user$project$Dashboard$viewEvent = function (event) {
+	return A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[_user$project$Dashboard$logMessageStyle]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$html$Html$text(
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					'> ',
+					_user$project$Scout$eventToString(event)))
+			]));
+};
+var _user$project$Dashboard$totalView = function (totalCookies) {
+	return A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[_user$project$Dashboard$horizontalGridStyle]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[_user$project$Dashboard$totalNumberStyle]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text(
+						_elm_lang$core$Basics$toString(totalCookies))
+					])),
+				A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[_user$project$Dashboard$totalCaptionStyle]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text('Cookies Sold')
+					]))
+			]));
+};
+var _user$project$Dashboard$view = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
 		_elm_lang$core$Native_List.fromArray(
@@ -8524,55 +9034,128 @@ var _user$project$Main$view = function (model) {
 				A2(
 				_elm_lang$html$Html$div,
 				_elm_lang$core$Native_List.fromArray(
-					[]),
-				A2(_elm_lang$core$List$map, _user$project$Main$viewEvent, model.events))
+					[_user$project$Dashboard$totalCardStyle]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_user$project$Dashboard$totalView(model.totalCookies)
+					])),
+				A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[_user$project$Dashboard$horizontalGridStyle]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(
+						_elm_lang$html$Html$div,
+						_elm_lang$core$Native_List.fromArray(
+							[_user$project$Dashboard$scoutsColumnStyle]),
+						A2(
+							_elm_lang$core$List$map,
+							_user$project$Dashboard$viewScout,
+							_elm_lang$core$Dict$toList(model.scouts))),
+						A2(
+						_elm_lang$html$Html$div,
+						_elm_lang$core$Native_List.fromArray(
+							[_user$project$Dashboard$logColumnStyle]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								A2(
+								_elm_lang$html$Html$div,
+								_elm_lang$core$Native_List.fromArray(
+									[_user$project$Dashboard$logTitleStyle]),
+								_elm_lang$core$Native_List.fromArray(
+									[
+										_elm_lang$html$Html$text('Log:')
+									])),
+								A2(
+								_elm_lang$html$Html$div,
+								_elm_lang$core$Native_List.fromArray(
+									[]),
+								A2(_elm_lang$core$List$map, _user$project$Dashboard$viewEvent, model.events))
+							]))
+					]))
 			]));
 };
-var _user$project$Main$update = F2(
-	function (msg, model) {
-		var _p0 = msg;
-		var maybeEvent = _user$project$Scout$decodeEvent(_p0._0);
-		var newModel = function () {
-			var _p1 = maybeEvent;
-			if (_p1.ctor === 'Just') {
+var _user$project$Dashboard$updateScouts = F2(
+	function (maybeEvent, model) {
+		var _p1 = maybeEvent;
+		if (_p1.ctor === 'Just') {
+			var _p2 = _p1._0;
+			return _elm_lang$core$Native_Utils.update(
+				model,
+				{
+					scouts: A3(
+						_elm_lang$core$Dict$insert,
+						_p2.name,
+						_user$project$Scout$stateAfter(_p2.event),
+						model.scouts)
+				});
+		} else {
+			return model;
+		}
+	});
+var _user$project$Dashboard$maybeUpdateCookies = F2(
+	function (maybeEvent, model) {
+		var _p3 = maybeEvent;
+		if (_p3.ctor === 'Just') {
+			var _p5 = _p3._0;
+			var _p4 = _p5.event;
+			if (_p4.ctor === 'Sold') {
 				return _elm_lang$core$Native_Utils.update(
 					model,
 					{
-						events: A2(_elm_lang$core$List_ops['::'], _p1._0, model.events)
+						totalCookies: model.totalCookies + _p4._0,
+						events: A2(_elm_lang$core$List_ops['::'], _p5, model.events)
 					});
 			} else {
-				return model;
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						events: A2(_elm_lang$core$List_ops['::'], _p5, model.events)
+					});
 			}
-		}();
+		} else {
+			return model;
+		}
+	});
+var _user$project$Dashboard$update = F2(
+	function (msg, model) {
+		var _p6 = msg;
+		var maybeEvent = _user$project$Scout$decodeEvent(_p6._0);
+		var newModel = A2(
+			_user$project$Dashboard$updateScouts,
+			maybeEvent,
+			A2(_user$project$Dashboard$maybeUpdateCookies, maybeEvent, model));
 		return {ctor: '_Tuple2', _0: newModel, _1: _elm_lang$core$Platform_Cmd$none};
 	});
-var _user$project$Main$scoutEventsServer = 'ws://localhost:8083/websocket';
-var _user$project$Main$Model = F2(
-	function (a, b) {
-		return {totalCookies: a, events: b};
+var _user$project$Dashboard$scoutEventsServer = 'ws://localhost:8083/websocket';
+var _user$project$Dashboard$Model = F3(
+	function (a, b, c) {
+		return {totalCookies: a, scouts: b, events: c};
 	});
-var _user$project$Main$init = {
+var _user$project$Dashboard$init = {
 	ctor: '_Tuple2',
-	_0: A2(
-		_user$project$Main$Model,
+	_0: A3(
+		_user$project$Dashboard$Model,
 		0,
+		_elm_lang$core$Dict$empty,
 		_elm_lang$core$Native_List.fromArray(
 			[])),
 	_1: _elm_lang$core$Platform_Cmd$none
 };
-var _user$project$Main$EventReceived = function (a) {
+var _user$project$Dashboard$EventReceived = function (a) {
 	return {ctor: 'EventReceived', _0: a};
 };
-var _user$project$Main$subscriptions = function (model) {
-	return A2(_elm_lang$websocket$WebSocket$listen, _user$project$Main$scoutEventsServer, _user$project$Main$EventReceived);
+var _user$project$Dashboard$subscriptions = function (model) {
+	return A2(_elm_lang$websocket$WebSocket$listen, _user$project$Dashboard$scoutEventsServer, _user$project$Dashboard$EventReceived);
 };
-var _user$project$Main$main = {
+var _user$project$Dashboard$main = {
 	main: _elm_lang$html$Html_App$program(
-		{init: _user$project$Main$init, view: _user$project$Main$view, update: _user$project$Main$update, subscriptions: _user$project$Main$subscriptions})
+		{init: _user$project$Dashboard$init, view: _user$project$Dashboard$view, update: _user$project$Dashboard$update, subscriptions: _user$project$Dashboard$subscriptions})
 };
 var Elm = {};
-Elm['Main'] = Elm['Main'] || {};
-_elm_lang$core$Native_Platform.addPublicModule(Elm['Main'], 'Main', typeof _user$project$Main$main === 'undefined' ? null : _user$project$Main$main);
+Elm['Dashboard'] = Elm['Dashboard'] || {};
+_elm_lang$core$Native_Platform.addPublicModule(Elm['Dashboard'], 'Dashboard', typeof _user$project$Dashboard$main === 'undefined' ? null : _user$project$Dashboard$main);
 
 if (typeof define === "function" && define['amd'])
 {
@@ -8603,4 +9186,4 @@ for (var publicModule in Elm)
 }
 
 }).call(this);
-</script></head><body><script type="text/javascript">Elm.Main.fullscreen()</script></body></html>
+</script></head><body><script type="text/javascript">Elm.Dashboard.fullscreen()</script></body></html>
