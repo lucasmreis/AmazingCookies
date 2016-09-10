@@ -53,4 +53,4 @@ module CommandApi
             | _ -> None
         match command with
         | Some cmd -> execute store json.Name cmd
-        | None -> BAD_REQUEST ("Command not valid: " + json.Type)
+        | None -> BAD_REQUEST (errorJson ("Command not valid: " + json.Type))
